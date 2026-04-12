@@ -6,15 +6,6 @@
 
 ---
 
-## Friendly Reminders & Security Tips
-*   **Never commit secrets:** Use environment variables and keep your `.env` files out of version control.
-*   **Use .gitignore:** Always ensure `.env`, `node_modules`, and other sensitive files are listed in your `.gitignore`.
-*   **Scan your code:** Use tools like gitleaks or trufflehog to detect secrets before they are pushed.
-*   **Rotate leaked keys:** If you accidentally expose a key, revoke it immediately and generate a new one. Even if you "delete" the commit, it may still exist in Git history.
-*   **GitHub Secret Scanning:** Enable GitHub's built-in secret scanning to get notified when sensitive data is detected.
-
----
-
 ### The "AI Stack" Dork (LLMs & Generation) (Working...)
 ```
 ("ELEVENLABS_API_KEY" OR "REPLICATE_API_TOKEN" OR "HF_TOKEN" OR "COHERE_API_KEY" OR "PERPLEXITY_API_KEY" OR "TOGETHER_API_KEY" OR "FIREWORKS_API_KEY" OR "DEEPINFRA_API_KEY" OR "FAL_KEY" OR "STABILITY_API_KEY" OR "GROK_API_KEY") (path:.env OR path:.env.local OR path:.env.dev OR path:.env.prod OR path:.env.development OR path:.env.production OR path:.env.staging) NOT (path:*.example* OR path:*.sample* OR path:*.template*)
@@ -29,6 +20,29 @@
 ```
 sk-ant-api03- (path:.env OR path:.env.local OR path:.env.development OR path:.env.production OR path:.env.dev OR path:.env.prod OR path:.env.staging OR path:.env.server) -path:.env.example -path:.env.sample -path:.env.template -path:.env.dist -path:.env.test -path:.env.backup -path:example -path:sample -path:template
 ```
+---
+
+## Friendly Reminders & Security Tips
+*   **Never commit secrets:** Use environment variables and keep your `.env` files out of version control.
+*   **Use .gitignore:** Always ensure `.env`, `node_modules`, and other sensitive files are listed in your `.gitignore`.
+*   **Scan your code:** Use tools like gitleaks or trufflehog to detect secrets before they are pushed.
+*   **Rotate leaked keys:** If you accidentally expose a key, revoke it immediately and generate a new one. Even if you "delete" the commit, it may still exist in Git history.
+*   **GitHub Secret Scanning:** Enable GitHub's built-in secret scanning to get notified when sensitive data is detected.
+
+---
+
+## Professional .gitignore Template
+A solid `.gitignore` is your first line of defense. Feel free to copy our [professional template](.gitignore) for your own SaaS or website projects.
+
+### How to use:
+1. Copy the contents of the `.gitignore` file from this repo.
+2. Create/Paste it into the root directory of your project.
+3. If you have already committed sensitive files, you must remove them from the cache:
+   ```bash
+   git rm -r --cached .
+   git add .
+   git commit -m "chore: apply professional gitignore"
+   ```
 
 ---
 
